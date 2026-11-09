@@ -1,0 +1,10 @@
+{
+  "projectTitle": "Interactive Financial Education Module Builder",
+  "company": "EduForge Financial Technologies",
+  "assessment": "Zetheta Algorithms Private Limited",
+  "visibility": "PRIVATE",
+  "schemaVersion": "1.0.0",
+  "primaryStack": ["React 18", "TypeScript", "Zustand", "Tailwind CSS", "Framer Motion", "dnd-kit", "Vitest", "Playwright"],
+  "blockTypes": 15,
+  "createdAt": "2026-11-09"
+}

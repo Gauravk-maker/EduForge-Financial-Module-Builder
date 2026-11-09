@@ -1,0 +1,4 @@
+export const BLOCK_TYPES = ['rich-text','image','video','quiz-mcq','quiz-true-false','emi-calculator','sip-calculator','compound-interest','callout','divider','accordion','progress-tracker','achievement-badge','code-snippet','concept-explainer'] as const;
+export type BlockType = typeof BLOCK_TYPES[number];
+export interface Block { id:string; type:BlockType; order:number; title:string; content:Record<string, unknown>; settings:{isVisible:boolean;isLocked:boolean;customCss:string}; }
+export interface ModuleDocument { moduleId:string; title:string; description:string; version:string; createdAt:string; updatedAt:string; author:{id:string;name:string}; metadata:{estimatedDuration:number;difficulty:'beginner'|'intermediate'|'advanced';tags:string[];thumbnail:string}; blocks:Block[]; quizConfig:{feedbackMode:'immediate'|'deferred';passingScore:number;showScoreOnCompletion:boolean}; }
