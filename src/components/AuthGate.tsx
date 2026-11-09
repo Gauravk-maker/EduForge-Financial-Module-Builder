@@ -7,6 +7,8 @@ import App from '../App';
 type AuthMode = 'login' | 'signup' | 'reset';
 
 export default function AuthGate() {
+  const authBypassEnabled =
+    import.meta.env.DEV && import.meta.env.VITE_E2E_BYPASS_AUTH === 'true';
   const [session, setSession] = useState<Session | null>(null);
   const [loading, setLoading] = useState(true);
   const [mode, setMode] = useState<AuthMode>('login');
@@ -141,6 +143,10 @@ export default function AuthGate() {
 
     const { error: logoutError } = await supabase.auth.signOut();
     if (logoutError) setError(logoutError.message);
+  }
+
+  if (authBypassEnabled) {
+    return <App />;
   }
 
   if (!isSupabaseConfigured) {
