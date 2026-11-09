@@ -142,7 +142,9 @@ export default function AuthGate() {
     const { error: logoutError } = await supabase.auth.signOut();
     if (logoutError) setError(logoutError.message);
   }
-
+  if (import.meta.env.MODE === 'e2e') {
+  return <App />;
+}
   if (!isSupabaseConfigured) {
     return (
       <main className="auth-page">
